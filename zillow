@@ -1,0 +1,58 @@
+1.Rectangle Overlap
+
+If the rectangles do not overlap, then rec1 must either be higher, lower, to the left, or to the right of rec2.
+
+return !(rec1[2] <= rec2[0] ||   // left
+                 rec1[3] <= rec2[1] ||   // bottom
+                 rec1[0] >= rec2[2] ||   // right
+                 rec1[1] >= rec2[3]);    // top
+
+
+2.用递归的方式来求一个string的长度
+try-catch ...
+
+public void getLen2(String input) {
+		try {
+			getLen2(input.substring(1));
+			count+=1;
+		}
+		catch(Exception e){
+			
+		}
+		
+	}
+
+3.给你一个log file，每一行都有一条记录，包括三个数据：访问时间，user id，访问的page id。然后让你找出访问次数最多的10组3个连续访问page。就是如果user A访问了page 1 2 3，这样 1 2 3 就算被访问了一次。不用考虑时间间隔所以我昨天访问1，今天2，后天3，也能算作连续访问page。我的做法是先用map统计了所有用户的按时间顺序排列好的访问page，然后三个三个加到另一个map里面去count，最后用minHeap找出前10个。follow up是如何优化空间，我那个时候大脑已经跪了，想了二十分钟想不出来就投降要hint了，然后经过提示就用大小为3的queue来存那连续三个page id，count完之后就扔掉第一个然后读第三个就好，不占用空间
+如果用户A：
+时间1 访问 网页 p1
+时间2 访问 网页 p2
+时间10 访问 网页 p3
+
+用户B :
+时间3 访问 网页 p4
+
+那么log file里面是根据时间排序的话：p1 p2 p4 p3，
+不好意思我以为你在说下一步。对的第一步要按照用户归类他们的访问页面。。。之后才针对每个用户统计连续三个页面，然后queue也是在这一步用的
+
+目的是找出访问最多的连续三个page，你key肯定是page id，value是count啊，是他们出现的次数啊。这个时候不用queue的话就是把所有的都存起来来算count，用queue的话就三个三个走，目的都一样，为了算他们的出现次数
+
+
+4.Given  a sorted array of integers. Find the median of the items that greater than or equal to an threashold.
+
+
+
+1: reverse a cycle linked list a->b->c->d->a  —>  a->d->c->b->a
+2: Given a map, mark its nodes as Black or Red, no two adjacent nodes have the same color. Return true or false. 
+    Follow up: the problem with saving color data inside node class. 当有不同的thread同时跑在同一个graph上的时候，如果把color存在Node类里就会出问题，比如一个thread先把一个node染色后，之后的thread看到这个node就已经有颜色了。这时候用个hashmap把node-color信息存在function里就能避免这个问题。
+3: Search a 2D Matrix II (Leetcode)
+4: 两种方法找出intersections of two integer arrays，
+    arr1 [4,5,2,4,2,2,6] arr2 [4,5,5,2,2], return [4,5,2,2]
+5: remove duplicates in a sorted array (Leetcode)
+6: Buy and sell stock (Leetcode)
+7：找出first unique char in streaming data.. 围观我们@1point 3 acres
+8: 给你一个 SortedArray和一个Threshold，找出大于等于这个threshold的数里面的median。注意dups
+9: 解释一下B+ Tree Indexing
+10: Permutations I & II (input char array)
+11: Word Ladder II
+
+296. Best Meeting Point
