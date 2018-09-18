@@ -1,3 +1,6 @@
+ref: http://www.pan.dog/2017/04/zillow-big-data-software-engineer.html
+
+
 1.Rectangle Overlap
 
 If the rectangles do not overlap, then rec1 must either be higher, lower, to the left, or to the right of rec2.
